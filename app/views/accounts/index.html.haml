@@ -1,0 +1,17 @@
+%h1
+	Accounts
+
+%table.table.table-bordered
+	%thead
+		%tr
+			%th Account Number
+			%th Balance
+			%th Actions
+	%tbody
+		- @accounts.each do |account|
+			%tr 
+				%td #{account.account_number}
+				%td #{account.balance}
+				%td 
+					=link_to account_path(account.id), class: "btn btn-primary" do 
+						Show 	
