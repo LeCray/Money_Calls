@@ -4,14 +4,16 @@
 %table.table.table-bordered
 	%thead
 		%tr
+			%th Account Holder
 			%th Account Number
 			%th Balance
 			%th Actions
 	%tbody
 		- @accounts.each do |account|
 			%tr 
+				%td #{account.client}
 				%td #{account.account_number}
-				%td #{account.balance}
+				%td #{number_to_currency(account.balance, unit: "GXB ")}
 				%td 
-					=link_to account_path(account.id), class: "btn btn-primary" do 
+					=link_to account_path(account.id) do 
 						Show 	

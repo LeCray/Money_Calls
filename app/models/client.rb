@@ -7,10 +7,10 @@ class Client < ApplicationRecord
 
 	def format_name
 		self.first_name = self.first_name.capitalize
-		self.first_name = self.last_name.capitalize
+		self.last_name = self.last_name.capitalize
 	end
 
 	def to_s
-		"#{first_name}, #{last_name}"
+		"#{first_name} #{last_name}"
 	end
 end
