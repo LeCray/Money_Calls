@@ -14,9 +14,27 @@ var Show = (function() {
 		$selectTransactionType 	= $('#select-transaction-type');
 	};
 
+
+	var disableControls = function() {
+		$btnSave.prop('disabled', true);
+		$inputAmount.prop('disabled', true);
+		$selectTransactionType.prop('disabled', true);
+	};
+
+	var enableControls = function() {
+		$btnSave.prop('disabled', false);
+		$inputAmount.prop('disabled', false);
+		$selectTransactionType.prop('disabled', false);
+	};
+
+
 	var initializeEvents = function() {
 		$btnNewTransaction.on("click", function() {
-			$modalTransaction.modal('show');
+			$modalTransaction.modal('show');			
+		});
+
+		$btnSave.on("click", function() {
+			disableControls();			
 		});
 	};
 
