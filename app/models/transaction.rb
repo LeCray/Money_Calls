@@ -1,7 +1,7 @@
 class Transaction < ApplicationRecord
   belongs_to :account
 
-   	TRANSACTION_TYPES = ["deposit", "withdraw", "transfer"]
+   	TRANSACTION_TYPES = ["Deposit", "Transfer", "Withdraw"]
 
   	validates :account, presence: true
   	validates :amount, presence: true, numericality: true
