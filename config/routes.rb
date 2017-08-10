@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
 root to: 'pages#index'
-resources :accounts, only: [:index, :show]
+resources :accounts
 
 namespace :api do
 	namespace :v1 do

@@ -10,7 +10,14 @@
 		%h2
 		Number of Accounts: #{number_of_accounts}
 
+%hr
+
 .row
 	.col-md-12
 		= link_to accounts_path do
 			Accounts
+		%hr 
+		= link_to new_account_path do
+			New Account
+
+

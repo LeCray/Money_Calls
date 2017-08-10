@@ -5,14 +5,23 @@
 
 %hr
 
-= button_tag :new_transaction, id: 'btn-new-transaction', class: 'btn btn-primary' do 
-	New Transaction 	
+.btn-toolbar
+	= button_tag :new_transaction, id: 'btn-new-transaction', class: 'btn btn-primary' do 
+		New Transaction 	
+
+	= link_to accounts_path, class: 'btn btn-default' do
+		Accounts
+
 %hr
 
 -#Transactions Table
 = render partial: 'transactions', locals: { account: @account } 
 -#Transaction Modal
 = render partial: 'modal_transaction'
+
+= link_to account_path(@account.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do
+	Delete Account
+
 
 
 #parameters{ data: { account_id: @account.id } }
