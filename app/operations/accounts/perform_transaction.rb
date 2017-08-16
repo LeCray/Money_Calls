@@ -17,12 +17,12 @@ module Accounts
 					transaction_type: @transaction_type
 				)
 
-				if @transaction_type == 'Withdraw'
+				if @transaction_type == 'Sell'
 					@account.update!(balance: @account.balance - @amount)
-				elsif @transaction_type == 'Deposit'
+				elsif @transaction_type == 'Buy'
 					@account.update!(balance: @account.balance + @amount)				
 				end
-				
+
 			end
 			@account
 		end

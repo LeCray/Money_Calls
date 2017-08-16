@@ -1,8 +1,10 @@
-%h1
-	GALXYBIT
 
 
+%h1 
+	GALXYBIT 
 
+
+    
 .row
 	.col-md-12
 		%h2
@@ -14,6 +16,12 @@
 
 .row
 	.col-md-12
+		= link_to clients_path do
+			Clients
+		%hr
+		= link_to new_client_path do
+			New Client
+		%hr
 		= link_to accounts_path do
 			Accounts
 		%hr 

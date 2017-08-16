@@ -1,7 +1,12 @@
 class Client < ApplicationRecord
+	has_one :account
+	has_secure_password
+
+	
 	validates :first_name, presence: true
 	validates :last_name, presence: true
-	validates :client_number, presence: true, uniqueness: true
+	validates :email, presence: true
+	
 
 	before_save :format_name
 

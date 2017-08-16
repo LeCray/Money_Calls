@@ -1,0 +1,15 @@
+%table.table.table-bordered
+	%thead
+		%tr
+			%th Name
+			%th Actions
+	%tbody
+		- clients.each do |c|
+			%tr
+				%td #{c}
+				%td
+					= link_to client_path(c.id) do
+						Profile
+					=link_to account_path(c.email) do
+						Account
+					

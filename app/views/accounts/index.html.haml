@@ -1,8 +1,11 @@
 %h1
 	Accounts
 
-= link_to new_account_path, class: 'btn btn-primary' do
-	New Account
+.btn-toolbar
+	= link_to new_account_path, class: 'btn btn-primary' do
+		New Account
+	= link_to root_path, class: 'btn btn-default' do
+		Home
 
 %hr
 
@@ -21,4 +24,4 @@
 				%td #{number_to_currency(account.balance, unit: "GXB ")}
 				%td 
 					=link_to account_path(account.id) do 
-						Show 	
+						Show Account	

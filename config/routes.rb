@@ -2,6 +2,11 @@ Rails.application.routes.draw do
 
 root to: 'pages#index'
 resources :accounts
+resources :clients
+resources :profiles
+
+get '/signup' => 'clients#new'
+post '/clients' => 'clients#create'
 
 namespace :api do
 	namespace :v1 do

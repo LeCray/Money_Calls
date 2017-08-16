@@ -1,0 +1,17 @@
+%h1
+	Client Profile
+%h2
+	#{@client}
+%hr
+%h4
+	#{number_to_currency(@account.balance, unit: 'R ')}
+%hr
+= link_to account_path(@account.id), class: 'btn btn-primary' do
+	Account
+
+
+
+
+
+
+	
