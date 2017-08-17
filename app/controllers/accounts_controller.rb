@@ -1,6 +1,7 @@
 class AccountsController < ApplicationController
 
 	def index
+		client = Client.all
 		@accounts = Account.all
 	end
 
@@ -19,6 +20,10 @@ class AccountsController < ApplicationController
 
 	end
 
+	def show
+		@account = Account.find(params[:id])
+	end
+
 	def edit
 	end
 
@@ -34,12 +39,6 @@ class AccountsController < ApplicationController
 			@account.destroy!
 			redirect_to accounts_path
 		end
-	end
-
-
-	def show
-		@account = Account.find(params[:id])
-		@client = @account.client
 	end
 
 

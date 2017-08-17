@@ -9,10 +9,10 @@
 	= button_tag :new_transaction, id: 'btn-new-transaction', class: 'btn btn-primary' do 
 		New Transaction 	
 
-	= link_to accounts_path, class: 'btn btn-default' do
+	= link_to client_accounts_path, class: 'btn btn-default' do
 		Accounts
 
-	= link_to client_path(@client.id), class: 'pull-right btn btn-default' do
+	= link_to client_path(@account.client.id), class: 'pull-right btn btn-default' do
 		Client Profile
 
 %hr
@@ -22,7 +22,7 @@
 -#Transaction Modal
 = render partial: 'modal_transaction'
 
-= link_to account_path(@account.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do
+= link_to client_account_path(@account.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do
 	Delete Account
 
 

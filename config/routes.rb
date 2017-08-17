@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
 
 root to: 'pages#index'
-resources :accounts
-resources :clients
-resources :profiles
+
+resources :clients do
+	resources :accounts
+end
+
 
 get '/signup' => 'clients#new'
 post '/clients' => 'clients#create'

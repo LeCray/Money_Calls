@@ -10,6 +10,8 @@ class ClientsController < ApplicationController
 
 	def create
 		@client = Client.new(client_params)
+		@account = Account.create( client_id: @client.id, balance: 0.00, account_number: '004' )
+
 		if @client.save
 			redirect_to @client
 		else
@@ -19,7 +21,6 @@ class ClientsController < ApplicationController
 
 	def show
 		@client = Client.find(params[:id])
-		@account = @client.account
 	end
 
 
@@ -48,7 +49,11 @@ class ClientsController < ApplicationController
 
 
 	def client_params
-	  params.require(:client).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		params.require(:client).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+	end
+
+	def account_params
+		params.require(:account).permit(:balance, :account_number, :client_id)
 	end
 
 end
