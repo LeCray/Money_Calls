@@ -8,6 +8,7 @@ var Show = (function() {
 	var $parameters;
 	var $notification;
 
+	var ClientId;
 	var AccountId;
 	var url = '/api/v1/accounts/new_transaction';
 
@@ -21,6 +22,7 @@ var Show = (function() {
 		$notification 			= $('.notification');
 
 		AccountId 				= $parameters.data('account-id');
+		ClientId				= $parameters.data('client-id');
 	};
 
 
@@ -47,7 +49,7 @@ var Show = (function() {
 			var transactionType = $selectTransactionType.val();
 			disableControls();	
 
-			console.log('Amount: ' + amount + ' Transaction Type: ' + transactionType + ' Account ID: ' + AccountId);		
+			console.log('Amount: ' + amount + ' Transaction Type: ' + transactionType + ' Account ID: ' + AccountId + ' Client ID: ' + ClientId);		
 
 			$notification.html('');
 
@@ -58,10 +60,12 @@ var Show = (function() {
 				data: {
 					amount: amount,
 					transaction_type: transactionType,
-					account_id: AccountId
+					account_id: AccountId,
+					client_id: ClientId
 				},
+
 				success: function(response) {
-					window.location.href = '/accounts/'+ AccountId;
+					window.location.href = '/clients/' + ClientId + '/accounts/'+ AccountId;
 				},
 				error: function(response) {
 					$notification.html(JSON.parse(response.responseText).errors.join());

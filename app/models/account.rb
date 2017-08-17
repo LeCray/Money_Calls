@@ -15,7 +15,7 @@ class Account < ApplicationRecord
   end
 
   def to_s
-  	account_number
+  	account_number 
   end
 
 

@@ -1,7 +1,7 @@
 class AccountsController < ApplicationController
 
 	def index
-		client = Client.all
+		@client = Client.all
 		@accounts = Account.all
 	end
 
@@ -22,6 +22,7 @@ class AccountsController < ApplicationController
 
 	def show
 		@account = Account.find(params[:id])
+		@client = @account.client
 	end
 
 	def edit

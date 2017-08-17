@@ -18,7 +18,7 @@
 %hr
 
 -#Transactions Table
-= render partial: 'transactions', locals: { account: @account } 
+= render partial: 'transactions', locals: { account: @account, client: @client } 
 -#Transaction Modal
 = render partial: 'modal_transaction'
 
@@ -27,7 +27,7 @@
 
 
 
-#parameters{ data: { account_id: @account.id } }
+#parameters{ data: { account_id: @account.id, client_id: @client.id } }
 		
 
 = javascript_include_tag 'accounts/Show.js'

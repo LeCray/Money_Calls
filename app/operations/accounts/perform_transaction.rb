@@ -1,10 +1,11 @@
 module Accounts
 	class PerformTransaction
 
-		def initialize(amount:, transaction_type:, account_id:)
+		def initialize(amount:, transaction_type:, account_id:, client_id:)
 			@amount 		   = amount.try(:to_f)
 			@transaction_type  = transaction_type
 			@account_id 	   = account_id
+			@client_id 		   = client_id
 			@account           = Account.where(id: @account_id).first
 		end
 
@@ -17,9 +18,9 @@ module Accounts
 					transaction_type: @transaction_type
 				)
 
-				if @transaction_type == 'Sell'
+				if @transaction_type == 'Withdraw'
 					@account.update!(balance: @account.balance - @amount)
-				elsif @transaction_type == 'Buy'
+				elsif @transaction_type == 'Deposit'
 					@account.update!(balance: @account.balance + @amount)				
 				end
 

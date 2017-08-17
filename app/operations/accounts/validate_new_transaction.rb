@@ -1,10 +1,11 @@
 module Accounts
 	class ValidateNewTransaction
 
-		def initialize(amount:, transaction_type:, account_id:)
+		def initialize(amount:, transaction_type:, account_id:, client_id:)
 			@amount 		   = amount.try(:to_f)
 			@transaction_type  = transaction_type
 			@account_id 	   = account_id
+			@client_id		   = client_id
 			@account           = Account.where(id: @account_id).first
 			@errors = []
 		end

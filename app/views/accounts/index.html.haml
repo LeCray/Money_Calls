@@ -2,8 +2,6 @@
 	Accounts
 
 .btn-toolbar
-	= link_to new_account_path, class: 'btn btn-primary' do
-		New Account
 	= link_to root_path, class: 'btn btn-default' do
 		Home
 
@@ -13,15 +11,15 @@
 	%thead
 		%tr
 			%th Account Holder
-			%th Account Number
+			%th Account ID
 			%th Balance
 			%th Actions
 	%tbody
-		- @accounts.each do |account|
+		- @client.each do |c|
 			%tr 
-				%td #{account.client}
-				%td #{account.account_number}
-				%td #{number_to_currency(account.balance, unit: "GXB ")}
+				%td #{c}
+				%td #{c.account.id}
+				%td #{number_to_currency(c.account.balance, unit: "R ")}
 				%td 
-					=link_to account_path(account.id) do 
-						Show Account	
+					=link_to client_account_path(c.id, c.account.id) do
+						Account
