@@ -9,8 +9,9 @@ class Account < ApplicationRecord
   before_validation :load_defaults
 
   def load_defaults
-  	if balance.nil?
-  		self.balance = 0.00
+  	if :balance.nil? && :account_number.nil?
+  		self.balance = 0.00;
+  		self.account_number = self.id
   	end
   end
 
