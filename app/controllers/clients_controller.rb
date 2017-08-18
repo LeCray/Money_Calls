@@ -10,10 +10,10 @@ class ClientsController < ApplicationController
 
 	def create
 		@client = Client.new(client_params)
-		@account = @client.create_account({client_id: @client.id})
+		@account = @client.build_account(client_id: @client.id, balance: 0.00)
 		
-		if @client.save 	
-			redirect_to @client
+		if @client.save && @account.save 	
+			redirect_to client_path(@client.id)
 		else
 			render 'new'
 		end

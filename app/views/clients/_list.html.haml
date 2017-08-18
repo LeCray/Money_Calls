@@ -1,15 +1,20 @@
 %table.table.table-bordered
 	%thead
 		%tr
-			%th Name
-			%th Actions
+			%th <b>Name</b>
+			%th <b>Balance</b>
+			%th <b>Actions</b>
 	%tbody
 		- clients.each do |c|
 			%tr
 				%td #{c}
+				%td #{number_to_currency(c.account.balance, unit: 'R ')}
 				%td
 					= link_to client_path(c.id) do
 						Profile
+
+					|
+
 					=link_to client_account_path(c.id, c.account.id) do
 						Account
 					

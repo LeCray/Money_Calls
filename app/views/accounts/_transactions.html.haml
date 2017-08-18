@@ -1,9 +1,9 @@
 %table.table.table-bordered
 	%thead
 		%tr
-			%th Date of Transaction
-			%th Transaction Type
-			%th Amount
+			%th <b>Date of Transaction</b>
+			%th <b>Transaction Type</b>
+			%th <b>Amount</b>
 	%tbody
 		- account.transactions.each do |t|
 			%tr
@@ -12,5 +12,5 @@
 				%td #{t.amount}
 		%tr
 			%th
-			%th Balance
-			%th #{number_to_currency(account.balance, unit: "R ")}
+			%th <b>Balance</b>
+			%th <b>#{number_to_currency(account.balance, unit: "R ")}</b>

@@ -12,9 +12,12 @@
 					#{number_to_currency(@client.account.balance, unit: 'R ')}
 				
 				%hr
+					.btn-toolbar
+						= link_to root_path, class: 'btn btn-default' do
+							Home
+						=link_to client_account_path(@client.id, @client.account.id), class: 'btn btn-primary' do
+							Account
 
-					=link_to root_path, class: 'btn btn-default' do
-						Home
 
 
 
