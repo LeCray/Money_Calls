@@ -11,6 +11,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += [
 	'accounts/Show.js'
 ]
+Rails.application.config.assets.precompile += %w( pages/Particles.js )
 
 Rails.application.config.assets.precompile += %w( accounts/jquery.js )
 
