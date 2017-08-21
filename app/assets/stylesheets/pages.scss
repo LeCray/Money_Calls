@@ -8,13 +8,27 @@
 }
 
 html, body {
-    height: 100%;
-    margin: 0;
+    margin: 0 auto;
     padding: 0;
-    background-color: #333;
     overflow: hidden;
 }
 
 canvas {
     background-color: #000;
+    position: absolute;
+	z-index: -1;
 }
+
+.everything {
+	position: fixed;
+	z-index: 10;
+	text-align: center;
+	margin: 0 auto;
+
+    width: 20%; /* Set your desired with */
+    top: 50%;
+    left: 50%;
+    margin-top: -10%; /* Changes with height. */
+    margin-left: -10%;
+}
+
