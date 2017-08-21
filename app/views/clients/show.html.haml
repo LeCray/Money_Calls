@@ -1,21 +1,20 @@
-.row
-	.col-md-12
-		%h1
-			Client Profile
-			%hr
-
-			%h2
+.div_center
+	.row
+		.col-md-12
+			%h1
 				#{@client}
-
-				
-				%h4
-					#{number_to_currency(@client.account.balance, unit: 'R ')}
-				
+			%h4
+				#{@client.email}
 				%hr
+	
+					%h3
+						#{number_to_currency(@client.account.balance, unit: 'R ')}
+					
+					%hr
 					.btn-toolbar
 						= link_to root_path, class: 'btn btn-default' do
 							Home
-						=link_to client_account_path(@client.id, @client.account.id), class: 'btn btn-primary' do
+						=link_to client_account_path(@client.id, @client.account.id), class: 'btn btn-primary pull-right' do
 							Account
 
 
@@ -24,4 +23,4 @@
 
 
 
-	
+		

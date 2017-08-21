@@ -1,8 +1,11 @@
 %canvas{:id => "nokey", :width => "100%", :height => "100%"} 
     
+#heading
+	.row
+		.col-md-12	
+			GALXYBIT
+
 .everything
-	%h1 
-		GALXYBIT 
 
 	.row
 		.col-md-12
@@ -14,11 +17,11 @@
 
 	.row
 		.col-md-12
+			= link_to new_client_path do
+				JOIN NOW
+			%hr
 			= link_to clients_path do
 				Clients
-			%hr
-			= link_to new_client_path do
-				New Client
 		
 .java
 = javascript_include_tag 'pages/Particles.js'

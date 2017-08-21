@@ -1,25 +1,27 @@
-%h1
-	Accounts
+.container
 
-.btn-toolbar
-	= link_to root_path, class: 'btn btn-default' do
-		Home
+	%h1
+		Accounts
 
-%hr
+	.btn-toolbar
+		= link_to root_path, class: 'btn btn-default' do
+			Home
 
-%table.table.table-bordered
-	%thead
-		%tr
-			%th Account Holder
-			%th Account ID
-			%th Balance
-			%th Actions
-	%tbody
-		- @client.each do |c|
-			%tr 
-				%td #{c}
-				%td #{c.account.id}
-				%td #{number_to_currency(c.account.balance, unit: "R ")}
-				%td 
-					=link_to client_account_path(c.id, c.account.id) do
-						Account
+	%hr
+
+	%table.table.table-bordered
+		%thead
+			%tr
+				%th Account Holder
+				%th Account ID
+				%th Balance
+				%th Actions
+		%tbody
+			- @client.each do |c|
+				%tr 
+					%td #{c}
+					%td #{c.account.id}
+					%td #{number_to_currency(c.account.balance, unit: "R ")}
+					%td 
+						=link_to client_account_path(c.id, c.account.id) do
+							Account
