@@ -1,21 +1,23 @@
 class SessionsController < ApplicationController
+	include SessionsHelper
   
-  def new
-  end
+	def new
+	end
 
-  def create
-  	render 'new'
+	def create	
+		client = Client.find_by(email: params[:session][:email].downcase)
+		if client && client.authenticate(params[:session][:password])
+			log_in client
+			redirect_to client	
+		else
+			flash.now[:danger] = 'Invalid email/password combination'
+			render 'new' 
+		end
+	end
 
-  	client = Client.find_by(email: params[:session][:email].downcase)
-
-  	if client && client.authenticate(params[:session][:password])
-     	log_in client
-     	redirect_to client
-	else
-     	flash.now[:danger] = 'Invalid email/password combination'
-     	render 'new'  
-    end
-  
-  end
+	def destroy
+	    log_out
+	    redirect_to root_url
+	 end
 
 end

@@ -1,21 +1,25 @@
 <div class="container">
 
 	<h1 style="text-align: center;"><b>Signup</b></h1>
+
 	<hr>
 
-	<div class='row'>
-		<div class = 'col-md-6 col-md-offset-3'>
+	<div style="margin-bottom: 150px">
+		<div class='row'>
+			<div class = 'col-md-6 col-md-offset-3'>
 
-		<%= bootstrap_form_for(@client) do |f| %>
-			<%= f.text_field :first_name, label: 'First Name' %> <br>
-			<%= f.text_field :last_name, label: 'Last Name' %> <br>
-			<%= f.text_field :email, label: 'Email Address' %> <br>
+			<%= bootstrap_form_for(@client) do |f| %>
+				<%= f.text_field :first_name, label: 'First Name' %> <br>
+				<%= f.text_field :last_name, label: 'Last Name' %> <br>
+				<%= f.text_field :email, label: 'Email Address' %> <br>
 
-			<%= f.password_field :password, label: 'Password' %> <br>
-			<%= f.password_field :password_confirmation, label: "Confirm Password"  %> <br>
-			<%= f.submit "Create my account", class: 'btn btn-primary' %>
+				<%= f.password_field :password, label: 'Password' %> <br>
+				<%= f.password_field :password_confirmation, label: "Confirm Password"  %> <br>
+				<%= f.submit "Create my account", class: 'btn btn-primary' %>
 
-		<% end %>
+			<% end %>
+			</div>
 		</div>
 	</div>
+	
 </div>

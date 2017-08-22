@@ -27,9 +27,7 @@
 	-#Transaction Modal
 	= render partial: 'modal_transaction'
 
-	= link_to client_account_path(@account.id), method: :delete, class: 'btn btn-danger', data: { confirm: 'Are you sure?' } do
-		Delete Account
-
+	
 
 
 	#parameters{ data: { account_id: @account.id, client_id: @client.id } }

@@ -12,8 +12,10 @@ class ClientsController < ApplicationController
 		@client = Client.new(client_params)
 		@account = @client.build_account(client_id: @client.id, balance: 0.00)
 		
-		if @client.save && @account.save 	
+		if @client.save && @account.save 
+			log_in @client	
 			redirect_to client_path(@client.id)
+			flash[:success] = "Welcome to Financial Freedom"
 		else
 			render 'new'
 		end
