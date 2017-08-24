@@ -1,4 +1,4 @@
-What's up <%= @user.name %>
+What's up <%= @client.first_name %>
 
 Welcome to GALXYBIT! 
 
@@ -8,4 +8,4 @@ These are literally your first steps towards financial freedom.
 
 Click on the link below to activate your account:
 
-<%= edit_account_activation_url(@user.activation_token, email: @user.email) %>
+<%= edit_account_activation_url(@client.activation_token, email: @client.email) %>

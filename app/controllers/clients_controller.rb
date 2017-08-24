@@ -13,9 +13,10 @@ class ClientsController < ApplicationController
 		@account = @client.build_account(client_id: @client.id, balance: 0.00)
 		
 		if @client.save && @account.save 
-			log_in @client	
-			redirect_to client_path(@client.id)
-			flash[:success] = "Welcome to Financial Freedom"
+			ClientMailer.account_activation(@client).deliver_now
+      		flash[:info] = "Please check your email to activate your account."
+      		redirect_to root_url
+
 		else
 			render 'new'
 		end

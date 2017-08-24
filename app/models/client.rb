@@ -28,12 +28,24 @@ class Client < ApplicationRecord
 
     # Converts email to all lower-case.
     def downcase_email
-      self.email = email.downcase
+		self.email = email.downcase
     end
 
     # Creates and assigns the activation token and digest.
     def create_activation_digest
-      self.activation_token  = Client.new_token
-      self.activation_digest = Client.digest(activation_token)
+		self.activation_token  = Client.new_token
+		self.activation_digest = Client.digest(activation_token)
     end
+
+    # Returns the hash digest of the given string.
+	def Client.digest(string)
+		cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
+		                                          BCrypt::Engine.cost
+		BCrypt::Password.create(string, cost: cost)
+	end
+
+     # Returns a random token.
+	def Client.new_token
+		SecureRandom.urlsafe_base64
+	end
 end
