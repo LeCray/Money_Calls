@@ -14,8 +14,8 @@ class ClientsController < ApplicationController
 		
 		if @client.save && @account.save 
 			ClientMailer.account_activation(@client).deliver_now
-      		flash[:info] = "Please check your email to activate your account."
-      		redirect_to root_url
+      		flash.now[:info] = "Awesome. Now swing over to your emails to activate your account :)"
+      		render 'new'
 
 		else
 			render 'new'
