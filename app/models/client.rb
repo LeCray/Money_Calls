@@ -13,16 +13,23 @@ class Client < ApplicationRecord
 	
 
 	before_save :format_name
+	
+	def to_s
+		"#{first_name} #{last_name}"
+	end
 
 	def format_name
 		self.first_name = self.first_name.capitalize
 		self.last_name = self.last_name.capitalize
 	end
 
-	def to_s
-		"#{first_name} #{last_name}"
-	end
 
+	 # Returns true if the given token matches the digest.
+	def authenticated?(attribute, token)
+		digest = send("#{attribute}_digest")
+		return false if digest.nil?
+		BCrypt::Password.new(digest).is_password?(token)
+	end
 
 	private
 
@@ -48,4 +55,10 @@ class Client < ApplicationRecord
 	def Client.new_token
 		SecureRandom.urlsafe_base64
 	end
+
+	
+
+		 	
+
+
 end

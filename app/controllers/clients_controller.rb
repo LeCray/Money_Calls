@@ -35,13 +35,11 @@ class ClientsController < ApplicationController
 
 	def destroy
 		@client = Client.find(params[:id])
-
-		if @client.balance > 0
-			redirect_to client_path(@client.id)
-		else
-			@client.destroy!
-			redirect_to clients_path
-		end
+		@client.destroy!
+		@account = @client.account
+		@account.destroy!
+		redirect_to clients_path
+		
 	end
 
 
