@@ -6,7 +6,7 @@ class AccountActivationsController < ApplicationController
 			client.update_attribute(:activated,    true)
 			client.update_attribute(:activated_at, Time.zone.now)
 			log_in client
-			flash[:success] = "Dope. Your account is active."
+			flash[:success] = "Your account is active."
 			redirect_to client
 		else
 		flash[:danger] = "Invalid activation link"

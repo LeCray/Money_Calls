@@ -1,21 +1,26 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>GALXYBIT</title>
+    <title>MoneyCalls</title>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag 'application', media: 'all' %>
     <%= javascript_include_tag 'application' %>
+ 	<meta name="viewport" content="width=device-width, initial-scale=1">
+ 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
   	<% if current_page?(root_path) == false %>
 
 	  		<div style="margin-bottom: 100px">
-			  	<header class="navbar navbar-fixed-top navbar-inverse">
+			  	<header class="navbar navbar-default navbar-fixed-top">
 				  <div class="container">
 				    <nav>
-				      	<ul class="nav navbar-nav navbar-right">
-				        	<li><%= link_to "Home", root_path %></li>
+				      <ul class="nav navbar-nav navbar-right">
+				        <li><%= link_to "Home", root_path %></li>
 				   	        <% if logged_in? %>
 					         	<li><%= link_to "About", about_path %></li>
 					         	<li class="dropdown">
@@ -32,18 +37,16 @@
 					            </ul>
 					          </li>
 					        <% else %>
-				        		<li><%= link_to "Log in", login_path %></li>
-				        	<% end %>
+					        	<li><%= link_to "Log in", login_path %></li>
+					        <% end %>
 				      	</ul>
 				    </nav>
 				  </div>
 				</header>
 			</div>
-
+			
 	<% end %>
-
-	 
-	  	
+  	
   	<%= yield %>	
 
   </body>
