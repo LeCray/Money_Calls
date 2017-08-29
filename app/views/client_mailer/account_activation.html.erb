@@ -1,32 +1,33 @@
 
+<div class="container">
 
-<div>
-	<div>
+			<div style=" text-align: center; max-width: 50%">
 
-		<h2>GALXYBIT Capital</h2>
+			<h2>MoneyCalls</h2>
+			<hr>
 
-		<p>What's up <%= @client.first_name %> :)</p>
+			<p>What's up <%= @client.first_name %> :)</p>
 
-		<p>
-		Welcome to GALXYBIT! </br></br>
+			<p>
+			Welcome to MoneyCalls! </br></br></br>
 
-		These are literally your first steps towards financial freedom. </br>
-		"Without risk there can be no reward"</br></br>
+			To get started...</br></br></br>
 
-		Click on the link below to activate your account:
-		</p>
 
-		</br>
+			Click on the link below to activate your account:
+			</p>
 
-		<%= link_to "That account activation though", edit_account_activation_url(@client.activation_token,
-		                                                    email: @client.email) %>
-		</br>
-		</br>
-		</br>
-
-		Kind Regards, </br>
-		GALXYBIT Capital Service Desk
 			
-			                                                    
-	</div>	                                                   
-</div> 
+
+			<%= link_to "Activate my account", edit_account_activation_url(@client.activation_token,
+			                                                    email: @client.email) %>
+			</br>
+			</br>
+			</br>
+
+			Kind Regards, </br>
+			MoneyCalls Service Desk
+				
+			</div>	                                                    
+		
+</div>
