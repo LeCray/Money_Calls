@@ -24,6 +24,8 @@ class ClientsController < ApplicationController
 
 	def show
 		@client = Client.find(params[:id])
+		c = @client.id
+		@downlines = Client.where(referral_id: c) 
 	end
 
 
@@ -50,7 +52,7 @@ class ClientsController < ApplicationController
 
 
 	def client_params
-		params.require(:client).permit(:first_name, :last_name, :email, :password, :password_confirmation)
+		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :password, :password_confirmation)
 	end
 
 	def account_params

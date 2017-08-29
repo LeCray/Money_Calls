@@ -10,6 +10,7 @@ class Client < ApplicationRecord
 	validates :first_name, presence: true
 	validates :last_name, presence: true
 	validates :email, presence: true
+	validates :referral_id, presence: true
 	
 
 	before_save :format_name

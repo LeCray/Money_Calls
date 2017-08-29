@@ -4,9 +4,6 @@
 		%div{:class => "alert alert-#{key}", :style => "text-align: center"}
 			= value	
 
-
-
-
 	
 	.row
 		%div{:class => "col-md-5 col-md-offset-2", :style => "margin-top: 100px"}
@@ -14,23 +11,41 @@
 				#{@client}
 			%h4
 				#{@client.email} 
-	
-				%hr
-	
-					%h3
-						#{number_to_currency(@client.account.balance, unit: 'R ')}
 					
-					%hr
-					.btn-toolbar
-						= link_to root_path, class: 'btn btn-default' do
-							Home
-						=link_to client_account_path(@client.id, @client.account.id), class: 'btn btn-primary' do
-							Account
+			%hr
+			.btn-toolbar
+				= link_to root_path, class: 'btn btn-default' do
+					Home
+				=link_to client_account_path(@client.id, @client.account.id), class: 'btn btn-primary' do
+					Account
+
+	#{@client}'s downlines
+
+
+
+	%table.table.table-bordered
+		%thead
+			%tr
+				%th <b>Name</b>
+				%th <b>ID</b>
+				%th 
+		%tbody
+			- @downlines.each do |d|
+				%tr
+					%td #{d}
+					%td #{d.id}
+					%td
+						.btn-toolbar
+							= link_to client_path(d.id), class: 'btn btn-default' do
+								Dashboard
+						
+
+							= link_to 'Delete',  client_path(d.id), class: 'btn btn-danger',
+								data: { confirm: 'Are you sure?' }, method: :delete 
+							
 
 
 
 
 
-
-
-			
+				
