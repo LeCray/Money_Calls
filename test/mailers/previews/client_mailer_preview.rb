@@ -16,6 +16,7 @@ class ClientMailerPreview < ActionMailer::Preview
   # Preview this email at http://localhost:3000/rails/mailers/client_mailer/call_request
   def call_request
     client = Client.last
+    ClientMailer.call_request(client)
   end
 
 

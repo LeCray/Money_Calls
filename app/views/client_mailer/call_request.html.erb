@@ -10,7 +10,10 @@
 	</br>
 	</br>
 
-	View <%=@client%>'s dashboard: <%= link_to("dashboard", {:action => 'show', :id => @client.id}, :class => 'action show') 
+	View <%= @client %>'s dashboard: <%= link_to "Clients Dashboard", client_url(@client.id) %>
+
+	
+	</br>
 
 
 
