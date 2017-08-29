@@ -1,0 +1,21 @@
+
+%table.table.table-bordered
+	%thead
+		%tr
+			%th <b>Name</b>
+			%th <b>ID</b>
+			%th 
+	%tbody
+		- @downlines.each do |d|
+			%tr
+				%td #{d}
+				%td #{d.id}
+				%td
+					.btn-toolbar
+						= link_to client_path(d.id), class: 'btn btn-default' do
+							Dashboard
+					
+
+						= link_to 'Delete',  client_path(d.id), class: 'btn btn-danger',
+							data: { confirm: 'Are you sure?' }, method: :delete 
+						

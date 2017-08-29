@@ -6,46 +6,30 @@
 
 	
 	.row
-		%div{:class => "col-md-5 col-md-offset-2", :style => "margin-top: 100px"}
+		%div{:class => "col-md-5 col-md-offset-2", :style => "margin-top: 50px"}
 			%h1
 				#{@client}
 			%h4
 				#{@client.email} 
 					
 			%hr
-			.btn-toolbar
-				= link_to root_path, class: 'btn btn-default' do
-					Home
-				=link_to client_account_path(@client.id, @client.account.id), class: 'btn btn-primary' do
-					Account
+			
+			Total number of downlines: #{@downlines.count} 
+			%br
+			Last downline added on: #{@downlines.last.created_at} 
+		
+	.row
+		%div{:class => 'col-md-8 col-md-offset-2', :style => 'margin-top: 20px'}
 
-	#{@client}'s downlines
+			%hr
+
+			= render partial: 'downline_list', locals: { downlines: @downlines }
 
 
-
-	%table.table.table-bordered
-		%thead
-			%tr
-				%th <b>Name</b>
-				%th <b>ID</b>
-				%th 
-		%tbody
-			- @downlines.each do |d|
-				%tr
-					%td #{d}
-					%td #{d.id}
-					%td
-						.btn-toolbar
-							= link_to client_path(d.id), class: 'btn btn-default' do
-								Dashboard
-						
-
-							= link_to 'Delete',  client_path(d.id), class: 'btn btn-danger',
-								data: { confirm: 'Are you sure?' }, method: :delete 
-							
+		
 
 
 
 
 
-				
+					
