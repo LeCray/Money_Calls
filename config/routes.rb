@@ -8,12 +8,13 @@ Rails.application.routes.draw do
 	root to: 'pages#index'
 
 	get '/about' => 'pages#about'
+	get '/call' => "clients#call"
 
 	resources :clients do
 		resources :accounts
 	end
 
-	
+
 
 	resources :account_activations, only: [:edit]
 

@@ -1,0 +1,17 @@
+<div class="container">
+
+	<h3> New Call Request </h3>
+	<h4> Client: <%=@client%> </h4>
+
+	<p> MT4 ID: <%= @client.mt4_id %> </br>
+		Email: <% @client.email %> </br>
+	</p> 
+
+	</br>
+	</br>
+
+	View <%=@client%>'s dashboard: <%= link_to("dashboard", {:action => 'show', :id => @client.id}, :class => 'action show') 
+
+
+
+</div>

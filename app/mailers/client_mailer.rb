@@ -10,10 +10,11 @@ class ClientMailer < ApplicationMailer
     mail to: client.email, subject: "MoneyCalls Account Activation"
   end
 
-  def call(client)
+  def call_request(client)
     @client = client
-    mail to: Gift_Mashapha@gmail.com, subject: "MoneyCalls New Call" 
+    mail to: "forexmaster@networktradingsa.co.za", subject: "New Call Request"
   end
+
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:

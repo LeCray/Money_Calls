@@ -1,11 +1,11 @@
 <div class="container">
-
-	<% flash.each do |key, value| %>
-		<div style="text-align: center" class="alert alert-<%= key %>">
-			<%= value %>
-		</div>
-	<% end %>
-
+	<div style="margin-top: 25px">
+		<% flash.each do |key, value| %>
+			<div style="text-align: center" class="alert alert-<%= key %>">
+				<%= value %>
+			</div>
+		<% end %>
+	</div>	
 	
 	<h1 style="text-align: center;"><b>Signup</b></h1>
 

@@ -1,2 +1,0 @@
-class Downline < ApplicationRecord
-end

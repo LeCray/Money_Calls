@@ -28,6 +28,14 @@ class ClientsController < ApplicationController
 		@downlines = Client.where(referral_id: c) 
 	end
 
+	def call
+		@client = Client.find(params[:id])
+	  	ClientMailer.call_request(@client).deliver_now
+	
+	  	flash[:info] = "Your call request has been sent. Please wait while we process it :)"
+	    redirect_to client_path(@client)
+  	end
+
 
 	def edit
 	end
