@@ -19,5 +19,22 @@
  */
 
  @import 'bootstrap-sprockets';
- @import 'bootstrap'
+ @import 'bootstrap';
 
+.navbar {
+    z-index: 9999;
+    border: 0;
+    border-radius: 0;
+}
+
+
+
+.navbar-nav li a:hover, .navbar-nav li.active a {
+    color: #f4511e !important;
+ 
+}
+
+.navbar-default .navbar-toggle {
+    border-color: transparent;
+    color: #fff !important;
+}

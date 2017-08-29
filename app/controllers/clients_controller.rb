@@ -52,7 +52,7 @@ class ClientsController < ApplicationController
 
 
 	def client_params
-		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :password, :password_confirmation)
+		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :mt4_id,  :password, :password_confirmation)
 	end
 
 	def account_params
