@@ -22,19 +22,27 @@
  @import 'bootstrap';
 
 .navbar {
+
     z-index: 9999;
     border: 0;
     border-radius: 0;
 }
 
-
+.navbar li a, .navbar {
+      color: rgb(255, 160, 0)  !important;
+  }
 
 .navbar-nav li a:hover, .navbar-nav li.active a {
-    color: #f4511e !important;
+    color: rgb(255, 160, 0) !important;
+    background-color: #fff !important;
  
 }
 
 .navbar-default .navbar-toggle {
     border-color: transparent;
-    color: #fff !important;
+    color: rgb(255, 160, 0) !important;
+}
+
+.color {
+	color: rgb(255, 160, 0);
 }
