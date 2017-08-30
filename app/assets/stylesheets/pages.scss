@@ -13,38 +13,7 @@ html, body {
     overflow: auto;
 }
 
-canvas {
-    background-color: #000;
-    position: absolute;
-	z-index: -1;
-}
 
-.everything {
-	position: fixed;
-	z-index: 10;
-	text-align: center;
-	margin: 0 auto;
-    width: 20%; /* Set your desired with */
-    top: 80%;
-    left: 50%;
-    margin-top: -10%; /* Changes with height. */
-    margin-left: -10%;
-    
-}
-
-#heading {
-	position: fixed;
-	margin: 0 auto;
-	font-size: 5.5em;
-	color: rgb(25, 255, 25);
-	text-align: center;
-	z-index: 11;
-    width: 30%; /* Set your desired with */
-    top: 60%;
-    left: 45%;
-    margin-top: -10%; /* Changes with height. */
-    margin-left: -10%;    		
-}
 
 i {
     font-style: italic;
@@ -60,21 +29,17 @@ i {
     background-size: cover;
     overflow: hidden;
   
-    position:absolute;
-    top:0;left:0;
-    z-index:1;
+  
+  position:absolute;
+  top:0;left:0;
+  z-index:1;
+}
+.jumbotron {position:relative;padding:50px;}
+.jumbotron .container {z-index:2;
+ position:relative;
+  z-index:2;
 }
 
-.jumbotron {
-    position:relative;padding:50px;
-}
-
-.jumbotron .container {
-    z-index:2;
-    position:relative;
-    z-index:2;
-
-}
 
 .bg-grey {
     background-color: #f6f6f6;
@@ -84,16 +49,12 @@ i {
     padding: 50px;
 }
 
-.billboard .img{
-    opacity: 0.2;
-    background: #000 url("https://rayhigdon.com/wp-content/uploads/2017/05/network-marketing-company-featured-1024x536.png");
 
-}
 
 .glyphicon {  
       font-size: 150px;
       margin-bottom: 20px;
-      color: #f4511e;
+      color: rgb(255, 160, 0);
 }
 
 
