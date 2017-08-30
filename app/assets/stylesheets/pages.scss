@@ -83,3 +83,18 @@ i {
 .container-fluid {
     padding: 50px;
 }
+
+.billboard .img{
+    margin-bottom: 0px;
+    opacity: 0.2;
+    color: #fff;
+    background: #000 url("https://rayhigdon.com/wp-content/uploads/2017/05/network-marketing-company-featured-1024x536.png");
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    overflow: scroll;
+  
+    position:absolute;
+    top:50;left:0;
+    z-index:1;
+}

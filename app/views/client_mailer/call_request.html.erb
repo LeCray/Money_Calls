@@ -4,13 +4,13 @@
 	<h4> Client: <%=@client%> </h4>
 
 	<p> MT4 ID: <%= @client.mt4_id %> </br>
-		Email: <% @client.email %> </br>
+		Email: <%= @client.email %> </br>
 	</p> 
 
 	</br>
 	</br>
 
-	View <%= @client %>'s dashboard: <%= link_to "Clients Dashboard", client_url(@client.id) %>
+	View <%= @client %>'s <%= link_to "dashboard", client_url(@client.id) %>
 
 	
 	</br>

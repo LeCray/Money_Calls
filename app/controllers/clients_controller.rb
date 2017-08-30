@@ -26,6 +26,8 @@ class ClientsController < ApplicationController
 		@client = Client.find(params[:id])
 		c = @client.id
 		@downlines = Client.where(referral_id: c) 
+
+
 	end
 
 	def call
@@ -60,10 +62,6 @@ class ClientsController < ApplicationController
 
 	def client_params
 		params.require(:client).permit(:first_name, :last_name, :email, :referral_id, :mt4_id,  :password, :password_confirmation)
-	end
-
-	def account_params
-		params.require(:account).permit(:balance, :account_number, :client_id)
 	end
 
 end

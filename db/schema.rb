@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170829004521) do
+ActiveRecord::Schema.define(version: 20170829224228) do
 
   create_table "accounts", force: :cascade do |t|
     t.integer  "client_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20170829004521) do
     t.datetime "activated_at"
     t.integer  "referral_id"
     t.integer  "mt4_id"
+    t.boolean  "admin"
   end
 
   create_table "downlines", force: :cascade do |t|

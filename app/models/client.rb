@@ -1,7 +1,7 @@
 class Client < ApplicationRecord
 	attr_accessor :remember_token, :activation_token
 	before_save   :downcase_email
-	before_create :create_activation_digest
+	before_create :create_activation_digest, :admin_default
 
 	has_one :account
 	has_secure_password
@@ -34,8 +34,15 @@ class Client < ApplicationRecord
 
 	private
 
+	# You're not admin by default
+	def admin_default
+		if admin.nil?
+			admin = false
+		end
+	end
+
     # Converts email to all lower-case.
-    def downcase_email
+  	def downcase_email
 		self.email = email.downcase
     end
 
