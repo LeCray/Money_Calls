@@ -12,12 +12,15 @@
 
 ActiveRecord::Schema.define(version: 20170829224228) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "accounts", force: :cascade do |t|
     t.integer  "client_id"
     t.decimal  "balance"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["client_id"], name: "index_accounts_on_client_id"
+    t.index ["client_id"], name: "index_accounts_on_client_id", using: :btree
   end
 
   create_table "clients", force: :cascade do |t|
@@ -35,24 +38,15 @@ ActiveRecord::Schema.define(version: 20170829224228) do
     t.boolean  "admin"
   end
 
-  create_table "downlines", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "email"
-    t.string   "referral"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "profiles", force: :cascade do |t|
     t.integer  "client_id"
     t.integer  "account_id"
     t.integer  "transaction_id"
     t.datetime "created_at",     null: false
     t.datetime "updated_at",     null: false
-    t.index ["account_id"], name: "index_profiles_on_account_id"
-    t.index ["client_id"], name: "index_profiles_on_client_id"
-    t.index ["transaction_id"], name: "index_profiles_on_transaction_id"
+    t.index ["account_id"], name: "index_profiles_on_account_id", using: :btree
+    t.index ["client_id"], name: "index_profiles_on_client_id", using: :btree
+    t.index ["transaction_id"], name: "index_profiles_on_transaction_id", using: :btree
   end
 
   create_table "transactions", force: :cascade do |t|
@@ -62,7 +56,12 @@ ActiveRecord::Schema.define(version: 20170829224228) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
     t.string   "transaction_number"
-    t.index ["account_id"], name: "index_transactions_on_account_id"
+    t.index ["account_id"], name: "index_transactions_on_account_id", using: :btree
   end
 
+  add_foreign_key "accounts", "clients"
+  add_foreign_key "profiles", "accounts"
+  add_foreign_key "profiles", "clients"
+  add_foreign_key "profiles", "transactions"
+  add_foreign_key "transactions", "accounts"
 end
