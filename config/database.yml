@@ -29,4 +29,4 @@ production:
   timeout: 5000
   username: postgres
   password: One1One1
-  
+  host: /tmp:5432
