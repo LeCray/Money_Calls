@@ -22,11 +22,9 @@ test:
   password: One1One1
   host: localhost
 
+
 production:
   adapter: postgresql
-  database: my_database_production
-  pool: 5
-  timeout: 5000
   username: postgres
   password: One1One1
-  host: /tmp:5432
+  statement_limit: 200
