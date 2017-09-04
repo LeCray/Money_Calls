@@ -11,7 +11,7 @@ gem 'rails', '~> 5.0.1'
 # Use Postgres as the database for Active Record
 gem 'pg', group: :production # Added postgres and made it production only.
 
-gem 'activerecord-jdbcpostgresql-adapter'
+gem 'activerecord-jdbcpostgresql-adapter', platform :jruby
 
 gem 'rails_12factor'
 # Use Puma as the app server
